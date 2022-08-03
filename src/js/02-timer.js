@@ -41,21 +41,12 @@ function startTimer(onBtn) {
             }
         },1000)
 };
- 
-function newTimer(timeMs) {
-    const sec = 1000;
-    const min = sec * 60;
-    const hour = min * 60;
-    const day = hour * 24;
-    //seconsd
-    const seconds = pad(Math.floor((((timeMs % day) % hour) % min) / sec));
-    //minute
-    const minute = pad(Math.floor(((timeMs % day) % hour) / min));
-    //hours
-    const hours = pad(Math.floor((timeMs % day) / hour));
-    //days
-    const days = pad(Math.floor(timeMs / day));
-
+//5. Визначення дедлайну тарозрахунок часу в різних одиницях
+function newTimer(totalTimes) {
+    const seconds = pad(Math.floor((totalTimes / 1000) % 60));
+    const minute = pad(Math.floor(totalTimes / 1000 / 60) % 60);
+    const hours = pad(Math.floor(totalTimes / 1000 / 60 / 60) % 24);
+    const days = pad(Math.floor(totalTimes / 1000 / 60 / 60 / 24));
     return {seconds,minute,hours,days};
 };
 function pad(value) {
