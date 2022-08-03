@@ -19,7 +19,7 @@ let timerId = null;
 let userTime = null;
 refs.btn.disabled = true;
 
-//4. 
+//4. Запуск таймеру!
 function startTimer(onBtn) {
        if(onBtn.disabled)  {
       return 

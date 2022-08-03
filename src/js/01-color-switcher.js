@@ -3,14 +3,15 @@ function getRandomHexColor() {
 }
   
 
-// Оголошуємо змінну таймера!
-let timerId = null;
-// btnStop.disabled = true;
+
 // 1. відкриваємо достум до кнопок і боді!!!
 const body = document.querySelector("body");
 const btnStart = document.querySelector("button[data-start]");
 const btnStop = document.querySelector("button[data-stop]");
 
+// Оголошуємо змінну таймера!
+let timerId = null;
+btnStop.disabled = true;
 
 // 2. Прослуховуємо кнопки!!
 btnStart.addEventListener("click",onStart);
