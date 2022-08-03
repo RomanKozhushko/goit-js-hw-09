@@ -50,15 +50,16 @@ function newTimer(totalTime) {
 function pad(value) {
     return String(value).padStart(2, '0');
   };
-
+// 6. Передаємо розраховані значення !
 function updateTime({ days, hours, minute, seconds }) {
     elements.spanSeconds.textContent = seconds;
     elements.spanMinutes.textContent = minute;
     elements.spanHours.textContent = hours;
     elements.spanDays.textContent = days;
     elements.btn.disabled = true
-  };
-
+};
+  
+// 7. Виводимо вспливаюче вікно!
 const options = {
     enableTime: true,
     time_24hr: true,
