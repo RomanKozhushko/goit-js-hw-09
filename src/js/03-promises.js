@@ -28,9 +28,9 @@ function onSubmitForm(event) {
   event.preventDefault();
 
 // 6. Оголошення змінних
-  let delayValue =+ delayInput.value;
-  let stepValue =+ stepInput.value;
-  let amountValue =+ amountInput.value + 1;
+  let delayValue = + delayInput.value;
+  let stepValue = + stepInput.value;
+  let amountValue = + amountInput.value + 1;
 
   for (let i = 1 ; i < amountValue; i++){
     createPromise(i,delayValue)
