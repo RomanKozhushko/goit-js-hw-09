@@ -5,7 +5,7 @@ function getRandomHexColor() {
 
 // Оголошуємо змінну таймера!
 let timerId = null;
-btnStop.disabled = true;
+// btnStop.disabled = true;
 // 1. відкриваємо достум до кнопок і боді!!!
 const body = document.querySelector("body");
 const btnStart = document.querySelector("button[data-start]");
