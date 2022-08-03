@@ -3,8 +3,8 @@ import flatpickr from "flatpickr";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import "flatpickr/dist/flatpickr.min.css";
 
-// 2. Відкриття доступу 
-const refs = {
+// 2. Відкриття доступу до елементів
+const elements = {
     input : document.querySelector("#datetime-picker"),
     btn : document.querySelector("[data-start]"),
     divTimer :  document.querySelector(".timer"),
@@ -17,7 +17,7 @@ const refs = {
 //3. Оголошення змінних!
 let timerId = null;
 let userTime = null;
-refs.btn.disabled = true;
+elements.btn.disabled = true;
 
 //4. Запуск таймеру!
 function startTimer(onBtn) {
@@ -52,11 +52,11 @@ function pad(value) {
   };
 
 function updateTime({ days, hours, minute, seconds }) {
-    refs.spanSeconds.textContent = seconds;
-    refs.spanMinutes.textContent = minute;
-    refs.spanHours.textContent = hours;
-    refs.spanDays.textContent = days;
-    refs.btn.disabled = true
+    elements.spanSeconds.textContent = seconds;
+    elements.spanMinutes.textContent = minute;
+    elements.spanHours.textContent = hours;
+    elements.spanDays.textContent = days;
+    elements.btn.disabled = true
   };
 
 const options = {
@@ -70,12 +70,12 @@ const options = {
        //console.log(userTimeNow);
       if(userTime <= userTimeNow)
        {
-        Notify.failure(`❌ Please choose a date in the future`);
+        Notify.failure(`❌ Будь-ласка зробіть свій вибір>`);
         return
       }
-       Notify.success(`✅ Good choice,сlick on start`);
-       refs.btn.disabled = false
+       Notify.success(`✅ Дякуємо за гарний вибір`);
+       elements.btn.disabled = false
     }
 };
-flatpickr(refs.input,options);
-refs.btn.addEventListener("click",startTimer);
+flatpickr(elements.input,options);
+elements.btn.addEventListener("click",startTimer);
