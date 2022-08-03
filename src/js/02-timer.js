@@ -21,23 +21,23 @@ elements.btn.disabled = true;
 
 //4. Запуск таймеру!
 function startTimer(onBtn) {
-       if(onBtn.disabled)  {
-      return 
-    };  
-    timerId = setInterval(()=> {
-        const saveTime = Date.now();
-        const totalSaveTime = userTime - saveTime;
-        const resoltTime =  newTimer(totalSaveTime);
-        updateTime(resoltTime);
-        if(totalSaveTime <= 0) {
-            clearInterval(timerId);
-            updateTime({
-                days: "00",
-                hours : "00",
-                minute : "00",
-                seconds: "00",
-            });
-            }},1000)
+    if(onBtn.disabled)  {
+  return 
+};  
+timerId = setInterval(()=> {
+    const saveTime = Date.now();
+    const totalSaveTime = userTime - saveTime;
+    const resoltTime =  newTimer(totalSaveTime);
+    updateTime(resoltTime);
+    if(totalSaveTime <= 0) {
+        clearInterval(timerId);
+        updateTime({
+            days: "00",
+            hours : "00",
+            minute : "00",
+            seconds: "00",
+        });
+        }},1000)
 };
 //5. Визначення дедлайну тарозрахунок часу в різних одиницях
 function newTimer(totalTime) {
@@ -68,8 +68,7 @@ const options = {
     onClose(selectedDates) {
        const userTimeNow = Date.now();
        userTime = selectedDates[0]
-       //console.log(userTimeNow);
-      if(userTime <= userTimeNow)
+       if(userTime <= userTimeNow)
        {
         Notify.failure(`❌ Будь-ласка зробіть свій вибір>`);
         return
