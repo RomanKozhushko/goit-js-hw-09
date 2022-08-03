@@ -1,7 +1,9 @@
+// 1. Імпортування бібліотек
 import flatpickr from "flatpickr";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
 import "flatpickr/dist/flatpickr.min.css";
+
+// 2. Відкриття доступу 
 const refs = {
     input : document.querySelector("#datetime-picker"),
     btn : document.querySelector("[data-start]"),
@@ -10,19 +12,18 @@ const refs = {
     spanHours : document.querySelector("[data-hours]"),
     spanMinutes : document.querySelector("[data-minutes]"),
     spanSeconds : document.querySelector("[data-seconds]"),
-   // timerId : null,
 };
 
-//divTimer.style
-refs.btn.disabled = true;
+//3. Оголошення змінних!
 let timerId = null;
 let userTime = null;
+refs.btn.disabled = true;
 
+//4. 
 function startTimer(onBtn) {
        if(onBtn.disabled)  {
       return 
     };  
-    //onBtn.disabled = true
     timerId = setInterval(()=> {
         const saveTime = Date.now();
         const totalSaveTime = userTime - saveTime;

@@ -2,7 +2,7 @@ function getRandomHexColor() {
     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
   
-
+btnStop.disabled = true;
 // Оголошуємо змінну таймера!
 let timerId = null;
 // 1. відкриваємо достум до кнопок і боді!!!
