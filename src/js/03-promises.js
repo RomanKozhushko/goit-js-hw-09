@@ -1,18 +1,18 @@
+// 1. Імпорт бібліотеки вспливаючого вікна
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-
-
+// 2. Відкриття доступу до елементів
 const form = document.querySelector(".form");
 const delayInput = form.querySelector("input[name = delay]");
 const stepInput = form.querySelector("input[name = step]");
 const amountInput = form.querySelector("input[name = amount]");
-//const btnForm = document.querySelector("button")
 
+// 3. Прослуховування подій на кнопці
+form.addEventListener("submit", onSubmitForm);
 
-form.addEventListener("submit",onSubmitForm);
-
+// 4. Створення помісу функції
 function createPromise(position, delay) {
-  const myPromisNew = new Promise((resolve, reject) => {
+  const myPromis = new Promise((resolve, reject) => {
     setTimeout(() => {
       const shouldResolve = Math.random() > 0.3;
       if(shouldResolve) {
@@ -21,15 +21,16 @@ function createPromise(position, delay) {
         reject({position,delay});
     },delay);
   })
-  return myPromisNew
+  return myPromis;
 };
-
+// 5. Запобігання пеезавантаженню вікна
 function onSubmitForm(event) {
   event.preventDefault();
 
-  let delayValue = +delayInput.value;
-  let stepValue = +stepInput.value;
-  let amountValue = +amountInput.value + 1;
+// 6. Оголошення змінних
+  let delayValue =+ delayInput.value;
+  let stepValue =+ stepInput.value;
+  let amountValue =+ amountInput.value + 1;
 
   for (let i = 1 ; i < amountValue; i++){
     createPromise(i,delayValue)
