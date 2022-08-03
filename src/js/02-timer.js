@@ -77,5 +77,6 @@ const options = {
        elements.btn.disabled = false
     }
 };
+
 flatpickr(elements.input,options);
 elements.btn.addEventListener("click",startTimer);
