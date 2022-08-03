@@ -2,9 +2,10 @@ function getRandomHexColor() {
     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
   
-btnStop.disabled = true;
+
 // Оголошуємо змінну таймера!
 let timerId = null;
+btnStop.disabled = true;
 // 1. відкриваємо достум до кнопок і боді!!!
 const body = document.querySelector("body");
 const btnStart = document.querySelector("button[data-start]");
