@@ -28,32 +28,30 @@ function startTimer(onBtn) {
         const saveTime = Date.now();
         const totalSaveTime = userTime - saveTime;
         const resoltTime =  newTimer(totalSaveTime);
-        updateTextContent(resoltTime);
-
+        updateTime(resoltTime);
         if(totalSaveTime <= 0) {
             clearInterval(timerId);
-            updateTextContent({
+            updateTime({
                 days: "00",
                 hours : "00",
                 minute : "00",
-                seconds : "00",
+                seconds: "00",
             });
-            }
-        },1000)
+            }},1000)
 };
 //5. Визначення дедлайну тарозрахунок часу в різних одиницях
-function newTimer(totalTimes) {
-    const seconds = pad(Math.floor((totalTimes / 1000) % 60));
-    const minute = pad(Math.floor(totalTimes / 1000 / 60) % 60);
-    const hours = pad(Math.floor(totalTimes / 1000 / 60 / 60) % 24);
-    const days = pad(Math.floor(totalTimes / 1000 / 60 / 60 / 24));
+function newTimer(totalTime) {
+    const seconds = pad(Math.floor((totalTime / 1000) % 60));
+    const minute = pad(Math.floor(totalTime / 1000 / 60) % 60);
+    const hours = pad(Math.floor(totalTime / 1000 / 60 / 60) % 24);
+    const days = pad(Math.floor(totalTime/ 1000 / 60 / 60 / 24));
     return {seconds,minute,hours,days};
 };
 function pad(value) {
     return String(value).padStart(2, '0');
   };
 
-function updateTextContent({ days, hours, minute, seconds }) {
+function updateTime({ days, hours, minute, seconds }) {
     refs.spanSeconds.textContent = seconds;
     refs.spanMinutes.textContent = minute;
     refs.spanHours.textContent = hours;
