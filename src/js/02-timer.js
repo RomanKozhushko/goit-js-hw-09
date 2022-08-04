@@ -79,4 +79,12 @@ const options = {
 };
 
 flatpickr(elements.input,options);
-elements.btn.addEventListener("click",startTimer);
+elements.btn.addEventListener("click", startTimer);
+
+function onStart () {
+    btnStart.disabled = true,
+    btnStop.disabled = false,
+    timerId = setInterval(() => {
+    body.style.background = getRandomHexColor()
+    },1000)
+};
